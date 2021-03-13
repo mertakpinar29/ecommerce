@@ -39,18 +39,22 @@ const PlaceOrderScreen = ({ history }) => {
     // eslint-disable-next-line
   }, [history, success])
 
-  const placeOrderHandler = () => {}
-  dispatch(
-    createOrder({
-      orderItems: cart.cartItems,
-      shippingAdress: cart.shippingAdress,
-      paymentMethod: cart.paymentMethod,
-      itemsPrice: cart.itemsPrice,
-      shippingPrice: cart.shippingPrice,
-      taxPrice: cart.taxPrice,
-      totalPrice: cart.totalPrice,
-    })
-  )
+  const placeOrderHandler = () => {
+    console.log(cart.shippingAdress.adress)
+    console.log(cart.paymentMethod)
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAdress: cart.shippingAdress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        taxPrice: cart.taxPrice,
+        totalPrice: cart.totalPrice,
+      })
+    )
+  }
+
   return (
     <>
       <CheckoutSteps step1 step2 step3 step4 />
